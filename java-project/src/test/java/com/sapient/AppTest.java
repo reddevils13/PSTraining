@@ -19,20 +19,11 @@ public class AppTest
     {
         super( testName );
     }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	
+	public void test1()
+	{
+		App ob = new App();
+		int c = ob.add(10,20);
+		assertEquals(c,30);
+	}
 }
