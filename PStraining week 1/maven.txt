@@ -1,0 +1,5 @@
+mvn archetype:generate -DgroupId=com.sapient -DartifactId=java-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+mvn compile
+mvn package
+java -cp target/java-project-1.0-SNAPSHOT.jar com.mkyong.hashing.App 123456
+
