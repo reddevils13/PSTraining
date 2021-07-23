@@ -11,12 +11,7 @@ pipeline {
             }
         }
 
-        stage ('Test') {
-            steps {
-                bat """cd JWTDemo
-				mvn test"""
-            }
-        }
+       
 	stage ('Build') {
             steps {
                 bat """cd JWTDemo
