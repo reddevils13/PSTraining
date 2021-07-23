@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+    stages {
+	
+	
+        stage ('Initialize') {
+            steps {
+                bat """cd JWTDemo 
+				mvn clean install"""
+            }
+        }
+
+        stage ('Test') {
+            steps {
+                bat """cd JWTDemo
+				mvn test"""
+            }
+        }
+	stage ('Build') {
+            steps {
+                bat """cd JWTDemo
+				mvn package"""
+            }
+        }
+
+    }
+}
