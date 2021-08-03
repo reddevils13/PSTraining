@@ -72,12 +72,14 @@ public class OTPService {
 			OTP otp = userOtp.get();
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			System.out.println(ts);
+//			System.out.println(ts);
 			Date date = sdf.parse(ts.toString());
 
 			otp.settimstamp(date);
 			otp.setOtp(code);
-		} else {
+			iotpdao.save(otp);
+			} 
+		else {
 			OTP otp = new OTP();
 			otp.setUid(u.getUid());
 			otp.setOtp(code);
@@ -96,11 +98,9 @@ public class OTPService {
 
 		if (o.isPresent()) {
 			User u = o.get();
-			System.out.println("uid = " + u.getUid());
 			try {
 				renewOtp(u);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
