@@ -37,7 +37,7 @@ public class OTPController {
 		otpService.addUser(user);
 	}
 
-	@PostMapping("/user/generate")
+	@PostMapping(value = "/user/generate", consumes = "application/json")
 	public void auth(@RequestBody Integer uid) {
 		otpService.auth(uid);
 	}

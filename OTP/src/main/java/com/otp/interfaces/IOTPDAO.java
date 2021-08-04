@@ -19,4 +19,5 @@ public interface IOTPDAO extends JpaRepository<OTP,Integer>{
 	@Query(value = "select * from user_otp where uid=?1", nativeQuery = true)
 	public Optional<OTP> findOTPByuid(int uid);
 
+
 }

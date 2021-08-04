@@ -18,14 +18,11 @@ import javax.persistence.Table;
 public class OTP {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	public int oid;
+	public Integer uid;
 	
 	@Column
 	public String otp;
 	
-	@Column
-	public Integer uid;
 	
 	@Column
 	public Date timstamp;
@@ -55,21 +52,13 @@ public class OTP {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OTP(int oid, String otp, int uid, Date timstamp) {
+	public OTP( String otp, int uid, Date timstamp) {
 		super();
-		this.oid = oid;
 		this.otp = otp;
 		this.uid = uid;
 		this.timstamp = timstamp;
 	}
 
-	public int getOid() {
-		return oid;
-	}
-
-	public void setOid(int oid) {
-		this.oid = oid;
-	}
 
 	public String getOtp() {
 		return otp;
@@ -98,7 +87,7 @@ public class OTP {
 
 	@Override
 	public String toString() {
-		return "OTP [oid=" + oid + ", otp=" + otp + ", uid=" + uid + ", timstamp=" + timstamp + "]";
+		return "OTP [otp=" + otp + ", uid=" + uid + ", timstamp=" + timstamp + "]";
 	}
 	
 		

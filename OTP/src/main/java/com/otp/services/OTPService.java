@@ -112,14 +112,14 @@ public class OTPService {
 
 		final long OTP_VALIDATION_TIME = 1 * 60 * 1000; // expire after 1 minute (60000 ms)
 
-		Optional<OTP> userOtp = iotpdao.findById(otpToValidate.getOid());
+		Optional<OTP> userOtp = iotpdao.findOTPByuid(otpToValidate.getUid());
 		OTP otp;
 		if (userOtp == null)
 			return false;
 		
 		otp = userOtp.get();
 		System.out.println(otp);
-		long currentTime = System.currentTimeMillis(); // IST
+		long currentTime = System.currentTimeMillis(); 
 		long otptimstamp = otp.gettimstamp().getTime();
 		
 		System.out.println(otp.gettimstamp());
@@ -127,14 +127,9 @@ public class OTPService {
 		boolean expiry=true; boolean validate=false;
 		
 		if (otptimstamp + OTP_VALIDATION_TIME > currentTime) {
-			System.out.println(otptimstamp);
-			
-			System.out.println(currentTime);
 			expiry=false;
 		}
 		
-		System.out.println(otpToValidate.getOtp());
-		System.out.println(otp.getOtp());
 		if (otpToValidate.getOtp().equals(otp.getOtp())) {
 			validate=true;
 		}

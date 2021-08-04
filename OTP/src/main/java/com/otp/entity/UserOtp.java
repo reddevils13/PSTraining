@@ -2,26 +2,18 @@ package com.otp.entity;
 
 public class UserOtp {
 
-	public int oid;
+//	public int oid;
 
 	public String otp;
 
 	public Integer uid;
 
-	public UserOtp(int oid, String otp, Integer uid) {
+	public UserOtp( String otp, Integer uid) {
 		super();
-		this.oid = oid;
 		this.otp = otp;
 		this.uid = uid;
 	}
 
-	public int getOid() {
-		return oid;
-	}
-
-	public void setOid(int oid) {
-		this.oid = oid;
-	}
 
 	public String getOtp() {
 		return otp;
